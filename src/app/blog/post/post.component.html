@@ -1,0 +1,25 @@
+<div class="card" style="width: 18rem;">
+  <img src={{this.post?.thumbnail}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Title: {{this.post?.title}}</h5>
+    <p class="card-text">{{this.post?.description}}</p>
+    <button (click)="updateThePost(this.post)">Edit</button>
+    <button (click)="deleteThePost(this.post?.postId)">Delete</button>
+  </div>
+</div>
+<br>
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+  formControlName="commentByUser"
+  >
+  </textarea>
+  <button (click)="addComment()"></button>
+<div *ngFor="let cm of comments">
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">userName: {{cm.userName}} </label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+      {{cm.comment}}
+    </textarea>
+    <button (click)="updateTheComment(cm?.comment)">Edit</button>
+    <button (click)="deleteTheComment(cm?.commentId)">Delete</button>
+  </div>
+</div>
